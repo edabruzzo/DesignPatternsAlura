@@ -5,6 +5,7 @@
  */
 package chainOfResponsibiliy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,17 +14,23 @@ import java.util.List;
  */
 public class Orcamento {
     
+    
+    
     private List<Item> itens;
     private double valor;
 
+    
+        public Orcamento(){
+        itens = new ArrayList<Item>();
+    }
+
+    
+    
     public List<Item> getItens() {
         return itens;
     }
 
-    public void setItens(List<Item> itens) {
-        this.itens = itens;
-    }
-
+    
     public double getValor() {
         
         

@@ -5,6 +5,9 @@
  */
 package principal;
 
+import chainOfResponsibiliy.CalculadoraDeDescontos;
+import chainOfResponsibiliy.Item;
+import chainOfResponsibiliy.Orcamento;
 import strategy.*;
 
 /**
@@ -18,8 +21,8 @@ public class DesignPatternsAlura {
      */
     public static void main(String[] args) {
 
-        DesignPatternsAlura.testarStrategy();
-
+ //       DesignPatternsAlura.testarStrategy();
+        DesignPatternsAlura.testarChainOfResponsibility();
 }
 
     private static void testarStrategy() {
@@ -35,6 +38,24 @@ public class DesignPatternsAlura {
 
         }
 
+    }
+
+    private static void testarChainOfResponsibility() {
+    
+    chainOfResponsibiliy.CalculadoraDeDescontos calculador = new CalculadoraDeDescontos();
+    
+    Orcamento orcamento = new Orcamento();
+    Item item1 = new Item();
+    item1.setNome("Violão");
+    item1.setValor(800);
+    
+    orcamento.getItens().add(item1);
+    
+    double desconto = calculador.calculaDesconto(orcamento);
+    
+    System.out.println("Valor do desconto = R$ "+desconto);
+    
+    
     }
     
     
