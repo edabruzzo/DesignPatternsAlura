@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package chainOfResponsibiliy;
+package chainOfResponsibility;
 
 /**
  *
  * @author Emm
  */
-public class SemDescontos implements Desconto{
+public class DescontoPorMaisCincoItens implements Desconto{
 
-    Desconto proximo;
+    Desconto proximo = null;
     
     
     @Override
@@ -19,8 +19,11 @@ public class SemDescontos implements Desconto{
         
         if(orcamento.getItens().size() > 5)
             return orcamento.getValor() * 0.1;
-        else 
+        if (proximo != null)
             return proximo.calculaDesconto(orcamento);
+   	else
+	    return 0;
+    
     }
 
     @Override

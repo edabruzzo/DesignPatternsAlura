@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package chainOfResponsibiliy;
+package chainOfResponsibility;
 
 /**
  *
  * @author Emm
  */
-public class DescontoPorMaisCincoItens implements Desconto{
+public class DescontoPorVendaCasada implements Desconto{
 
     Desconto proximo = null;
     
@@ -17,8 +17,25 @@ public class DescontoPorMaisCincoItens implements Desconto{
     @Override
     public double calculaDesconto(Orcamento orcamento) {
         
-        if(orcamento.getItens().size() > 5)
-            return orcamento.getValor() * 0.1;
+       
+	    boolean possuiLapis = false;
+	    boolean possuiCaneta = false;
+	    
+	    
+	    for(Item item : orcamento.getItens()){
+			
+		if(item.getNome().equals("LAPIS"))
+			 possuiLapis = true;
+		    
+		if(item.getNome().equals("CANETA"))
+			 possuiCaneta = true;
+		    
+	    }
+	    
+	    
+	    
+	    if(possuiLapis && possuiCaneta)
+            return orcamento.getValor() * 0.05;
         if (proximo != null)
             return proximo.calculaDesconto(orcamento);
    	else
