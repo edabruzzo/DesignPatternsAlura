@@ -8,6 +8,7 @@ package principal;
 import chainOfResponsibility.*;
 import chainOfResponsibilityExercise.*;
 import strategy.*;
+import templateMethod.*;
 
 /**
  *
@@ -23,7 +24,41 @@ public class DesignPatternsAlura {
         DesignPatternsAlura.testarStrategy();
         DesignPatternsAlura.testarChainOfResponsibility();
         DesignPatternsAlura.testarChainOfResponsibilityExercise();
+        DesignPatternsAlura.testarTemplateMethod();
+        
     }
+
+
+    private static void testarTemplateMethod(){
+
+        Orcamento orcamento = new Orcamento();
+        Item item1 = new Item();
+        item1.setNome("Violão");
+        item1.setValor(490);
+
+        Item item2 = new Item();
+        item2.setNome("LAPIS");
+        item2.setValor(10);
+
+        Item item3 = new Item();
+        item3.setNome("CANETA");
+        item3.setValor(15);
+
+        orcamento.getItens().add(item1);
+        orcamento.getItens().add(item2);
+        orcamento.getItens().add(item3);
+
+        ImpostoX impostoX = new ImpostoX();
+        ImpostoY impostoY = new ImpostoY();
+        
+        double valorImpostoX = impostoX.calcula(orcamento);
+        double valorImpostoY = impostoY.calcula(orcamento);
+        
+        System.out.println("Valor impostoX: "+valorImpostoX);
+        System.out.println("Valor impostoY: "+valorImpostoY);
+
+    }
+
 
     private static void testarStrategy() {
 
@@ -69,6 +104,7 @@ public class DesignPatternsAlura {
     private static void testarChainOfResponsibilityExercise() {
 
         Requisicao requisicao = new Requisicao();
+
         Conta conta = new Conta();
         conta.setNomeTitular("Emmanuel");
         conta.setSaldo(20000);

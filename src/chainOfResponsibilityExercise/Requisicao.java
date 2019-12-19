@@ -5,26 +5,20 @@
  */
 package chainOfResponsibilityExercise;
 
+import strategy.Conta;
+
 /**
  *
  * @author Emm
  */
 public class Requisicao {
 
-    private String formato;
-
-    /**
-     * @param formato the formato to set
-     */
-    public void setFormato(String formato) {
-        this.formato = formato;
-    }
 
     public void formataDadosConta(Conta conta, String formato){
 
         FormatoXML  xml = new FormatoXML();
         FormatoCSV csv = new FormatoCSV();
-        FormatoPorCento porcento = new FormatoPorcento();
+        FormatoPorCento porcento = new FormatoPorCento();
 
 
         xml.setProximo(csv);

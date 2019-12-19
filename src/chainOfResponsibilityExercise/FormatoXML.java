@@ -1,38 +1,39 @@
 package chainOfResponsibilityExercise;
 
+import strategy.Conta;
+
 public class FormatoXML implements Formato {
 
     Formato proximo = null;
+    
+    @Override
+    public void formataDadosConta(Conta conta, String formato) {
 
-	@Override
-	public void formataDadosConta(Conta conta, String formato) {
+        if (formato != null && conta != null) {
 
+            if (proximo != null && formato.equalsIgnoreCase("XML")) {
 
-        if(formato != null && conta != null){
+                System.out.println("<conta>"
+                        + "<titular>" + conta.getNomeTitular() + "</titular>"
+                        + "<saldo>" + conta.getSaldo() + "</saldo>"
+                        + "</conta>");
 
-                if(proximo != null && formato.equalsIgnoreCase("XML")){
+            } else if (proximo != null) {
 
-                    System.out.println("<conta>"+
-                    "<titular>"+conta.getNomeTitular+"</titular>"+
-                    "<saldo>"+conta.getSaldo()+"</saldo>"+
-                    "</conta>");
+                proximo.formataDadosConta(conta, formato);
 
-                }else if (proximo != null){
+            } else {
 
-                    proximo.formataDadosConta(conta, formato);
-
-                }else{
-
-                    System.out.println("Não foi possível formatar os dados da conta");
-                }
-
+                System.out.println("Não foi possível formatar os dados da conta");
+            }
 
         }
 
-		
-	}
+    }
 
-    
-    
-    
+    @Override
+    public void setProximo(Formato proximo) {
+        this.proximo = proximo;
+    }
+
 }

@@ -13,8 +13,10 @@ public class Conta {
 
 
     private double saldo;
-
-
+    private String nomeTitular;
+    
+    
+    
     void depositar(double d) {
     
         this.setSaldo(saldo + d);
@@ -28,6 +30,14 @@ public class Conta {
 
     public void setSaldo(double saldo) {
         this.saldo = saldo;
+    }
+
+    public String getNomeTitular() {
+        return nomeTitular;
+    }
+
+    public void setNomeTitular(String nomeTitular) {
+        this.nomeTitular = nomeTitular;
     }
     
 }
