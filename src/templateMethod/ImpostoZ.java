@@ -55,7 +55,7 @@ public class ImpostoZ extends TemplateImpostoCondicional{
 
 	@Override
 	public double minimaTaxacao(Orcamento orcamento) {
-		return orcamento.getItens().size() * 0.01;
+		return orcamento.getValor() * (orcamento.getItens().size() * 0.01);
 	}
 
 
