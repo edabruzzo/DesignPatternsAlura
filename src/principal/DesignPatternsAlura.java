@@ -12,7 +12,12 @@ import templateMethod.*;
 import templateMethodRelatorio.*;
 import java.util.*;
 /**
- *
+
+FAZ PARTE DO CURSO DA ALURA, DISPONÍVEL EM 
+https://github.com/alura-cursos/Design-Patterns-Java-I-Boas-pr-ticas-de-programa-o/blob/master/src/FiltroMesmoMes.java
+
+
+IMPLEMENTAÇÕES BASEADAS NO CURSO, PORÉM DIFERENTES
  * @author Emm
  */
 public class DesignPatternsAlura {
@@ -28,8 +33,38 @@ public class DesignPatternsAlura {
         DesignPatternsAlura.testarTemplateMethod();
         DesignPatternsAlura.testarTemplateMethodRelatorio();
         DesignPatternsAlura.testarDecorator();
+        DesignPatternsAlura.testarEstadosVariamState();
     }
 
+
+
+    private static void testarEstadosVariamState(){
+
+        Orcamento orcamento = new Orcamento();
+        Item item = new Item();
+        item.setNome("Guitarra");
+        item.setValor(500);
+        
+        orcamento.getItens().add(item);
+        
+        double valorFinalOrcamento = 0;
+
+        for (Item itemOrcamento : orcamento.getItens()){
+
+            valorFinalOrcamento += itemOrcamento.getValor();
+
+        }
+
+        orcamento.aplicaDescontoExtra();
+        System.out.println(orcamento.getValor());
+        orcamento.aprova();
+
+        orcamento.aplicaDescontoExtra();
+        System.out.println(orcamento.getValor());
+
+        orcamento.finaliza();
+
+    }
 
 
     private static void testarDecorator(){
@@ -42,6 +77,7 @@ public class DesignPatternsAlura {
 
         Item item = new Item();
         item.setNome("Tumbadora");
+        item.setValor(500);
         orcamento.getItens().add(item);
 
         double valorImpostoX = impostoX.calcula(orcamento);

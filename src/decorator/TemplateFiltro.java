@@ -1,10 +1,12 @@
 package decorator;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import strategy.Conta;
 
 public abstract class TemplateFiltro extends Filtro {
+
 
     public TemplateFiltro(Filtro outroFiltro){
         super(outroFiltro);
@@ -16,7 +18,7 @@ public abstract class TemplateFiltro extends Filtro {
     }
 
     @Override
-    public final List<Conta> filtraContasFraudulentas(List<Conta> contas) {
+    public final List<Conta> decideQuaisContasFiltrar(List<Conta> contas) {
         if(outroFiltro != null){
             List<Conta> listaContasFiltradas = new ArrayList<Conta>(decideQuaisContasFiltrar(contas));
             listaContasFiltradas.addAll(outroFiltro.decideQuaisContasFiltrar(contas));
@@ -29,6 +31,5 @@ public abstract class TemplateFiltro extends Filtro {
     }
 
 
-    protected abstract List<Conta> decideQuaisContasFiltrar(List<Conta> contas);
 
 } 
