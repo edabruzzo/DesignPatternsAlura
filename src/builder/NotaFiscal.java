@@ -30,7 +30,7 @@ public class NotaFiscal{
         this.CNPJ = CNPJ;
         this.valorBruto = valorBruto;
         this.impostos = impostos;
-        this.dataEmissao = Calendar.getInstance();
+        this.dataEmissao = dataEmissao;
         this.observacoes = observacoes;
         this.orcamento = orcamento;
 

@@ -34,7 +34,9 @@ public class NotaFiscalBuilder{
 
 
     public NotaFiscalBuilder notaComData(Calendar dataEmissao){
-        this.dataEmissao = dataEmissao;
+
+            this.dataEmissao = Calendar.getInstance();
+
         return this;
     }
 
@@ -87,6 +89,9 @@ public class NotaFiscalBuilder{
 
 
     public NotaFiscal montaNota(){
+
+        if(this.dataEmissao == null)
+            this.dataEmissao = Calendar.getInstance();
 
         return new NotaFiscal(razaoSocial, cnpj, valorBruto, impostos, dataEmissao, observacoes, orcamento );
 
