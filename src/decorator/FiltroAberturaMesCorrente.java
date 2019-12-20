@@ -10,7 +10,7 @@ public class FiltroAberturaMesCorrente extends Filtro {
     protected List<Conta> decideQuaisContasFiltrar(List<Conta> contas) {
         List<Conta> contasFiltradas = new ArrayList<Conta>();
         for(Conta conta : contas){
-            if(conta.getDataAbertura().getMonth() == new Date().getMonth()){
+            if(conta.getDataAbertura().getMonth() == new Date().getMonth() && conta.getDataAbertura().getYear() == new Date().getYear()){
                 contasFiltradas.add(conta);
             }
         }
