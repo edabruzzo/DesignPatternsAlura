@@ -5,7 +5,8 @@ import chainOfResponsibility.Orcamento;
 public abstract class TemplateImpostoCondicional implements Imposto {
 
 
-    public double calcula(Orcamento orcamento) {
+    //este método não pode ser sobrescrito pelas classes filhas, por isso é marcado como final
+    public final double calcula(Orcamento orcamento) {
 
       if(deveUsarMaximaTaxacao(orcamento)) {
         return maximaTaxacao(orcamento);
