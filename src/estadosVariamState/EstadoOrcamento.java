@@ -4,7 +4,7 @@ import chainOfResponsibility.Orcamento;
 
 public abstract class EstadoOrcamento{
 
-    boolean  descontoJahAplicado;
+    boolean  descontoJahAplicado = false;
 
     /**
      * @return the descontoJahAplicado

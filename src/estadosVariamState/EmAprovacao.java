@@ -6,9 +6,14 @@ public class EmAprovacao extends EstadoOrcamento {
 
     @Override
     public void aplicaDescontoExtra(Orcamento orcamento) {
-            if(!descontoJahAplicado)
-                orcamento.setValor(orcamento.getValor() - orcamento.getValor() * 0.05);
-                this.setDescontoJahAplicado(true);
+       
+        if(!descontoJahAplicado){
+            orcamento.setValor(orcamento.getValor() - orcamento.getValor() * 0.05);
+            this.setDescontoJahAplicado(true);
+        }else{
+            throw new RuntimeException("Desconto já aplicado!");
+        }
+
     }
 
 
