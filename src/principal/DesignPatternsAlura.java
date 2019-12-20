@@ -11,6 +11,7 @@ import strategy.*;
 import templateMethod.*;
 import templateMethodRelatorio.*;
 import java.util.*;
+import builder.*;
 /**
 
 FAZ PARTE DO CURSO DA ALURA, DISPONÍVEL EM 
@@ -34,7 +35,46 @@ public class DesignPatternsAlura {
         DesignPatternsAlura.testarTemplateMethodRelatorio();
         DesignPatternsAlura.testarDecorator();
         DesignPatternsAlura.testarEstadosVariamState();
+        DesignPatternsAlura.testarBuilder();
+    
     }
+
+
+
+
+
+    private static void testarBuilder(){
+
+        Orcamento orcamento = new Orcamento();
+        Item item = new Item();
+        item.setNome("Guitarra");
+        item.setValor(500);
+        
+        orcamento.getItens().add(item);
+        
+        double valorFinalOrcamento = 0;
+
+        for (Item itemOrcamento : orcamento.getItens()){
+
+            valorFinalOrcamento += itemOrcamento.getValor();
+
+        }
+
+        NotaFiscal notaFiscal = new NotaFiscalBuilder().notaComRazaoSocial("xxxxxxxxxxx")
+                                                        .notaComCNPJ("cnpj")    
+                                                        .notaComData(Calendar.getInstance())                                
+                                                        .notaComImposto(orcamento)                    
+                                                        .notaComObservacao("XXXXXXXXXX")
+                                                        .notaComOrcamento(orcamento)                    
+                                                        .notaComValorBruto(orcamento)
+                                                        .montaNota();
+                                                        
+    }   
+
+
+
+
+
 
 
 
