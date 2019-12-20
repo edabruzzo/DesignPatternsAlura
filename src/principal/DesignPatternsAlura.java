@@ -27,8 +27,29 @@ public class DesignPatternsAlura {
         DesignPatternsAlura.testarChainOfResponsibilityExercise();
         DesignPatternsAlura.testarTemplateMethod();
         DesignPatternsAlura.testarTemplateMethodRelatorio();
-        
+        DesignPatternsAlura.testarDecorator();
     }
+
+
+
+    private static void testarDecorator(){
+
+        Imposto impostoX = new ImpostoX();
+        Imposto impostoY = new  ImpostoY(impostoX);
+
+        Orcamento orcamento = new Orcamento();
+
+        Item item = new Item();
+        item.setNome("Tumbadora");
+        orcamento.getItens().add(item);
+
+        double valorImpostoXComImpostoY = impostoY.calcula(orcamento);
+
+        System.out.println(valorImpostoXComImpostoY);
+
+    }
+
+
 
 
     private static void testarTemplateMethodRelatorio(){
