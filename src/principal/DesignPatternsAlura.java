@@ -36,6 +36,7 @@ public class DesignPatternsAlura {
 
         Imposto impostoX = new ImpostoX();
         Imposto impostoY = new  ImpostoY(impostoX);
+        Imposto impostoMuitoAlto = new ImpostoMuitoAlto(impostoY);
 
         Orcamento orcamento = new Orcamento();
 
@@ -43,9 +44,14 @@ public class DesignPatternsAlura {
         item.setNome("Tumbadora");
         orcamento.getItens().add(item);
 
+        double valorImpostoX = impostoX.calcula(orcamento);
         double valorImpostoXComImpostoY = impostoY.calcula(orcamento);
+        double valorImpostoMuitoAltoCompostoImpostoY = impostoMuitoAlto.calcula(orcamento);
 
+
+        System.out.println(valorImpostoX);
         System.out.println(valorImpostoXComImpostoY);
+        System.out.println(valorImpostoMuitoAltoCompostoImpostoY);
 
     }
 
