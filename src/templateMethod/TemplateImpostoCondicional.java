@@ -28,11 +28,18 @@ public abstract class TemplateImpostoCondicional extends Imposto {
 
     protected final double calculaOutroImposto(Orcamento orcamento){
 
-      if(this.outroImposto != null)
+     /* 
+     
+     if(this.outroImposto != null)
         return this.outroImposto.calcula(orcamento);
       else
         return 0;
-    }
+    */
+      //simplica a lógica acima comentada em apenas uma linha
+      return (outroImposto == null ? 0 : outroImposto.calcula(orcamento));
+
+
+      }
 
 
 
