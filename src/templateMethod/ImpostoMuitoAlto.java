@@ -16,12 +16,12 @@ public class ImpostoMuitoAlto extends TemplateImpostoCondicional {
 
     @Override
     protected boolean deveUsarMaximaTaxacao(Orcamento orcamento) {
-        return false;
+        return true;
     }
 
     @Override
     protected double maximaTaxacao(Orcamento orcamento) {
-        return 0;
+        return orcamento.getValor() * 0.2;
     }
 
     @Override

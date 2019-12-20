@@ -5,7 +5,7 @@
  */
 package strategy;
 
-/**
+import java.util.Date;/**
  *
  * @author Emm
  */
@@ -16,6 +16,23 @@ public class Conta {
     private String nomeTitular;
     private String numero;
     private String agencia;
+    private Date dataAbertura;
+
+
+    /**
+     * @return the dataAbertura
+     */
+    public Date getDataAbertura() {
+        return dataAbertura;
+    }
+
+    
+    /**
+     * @param dataAbertura the dataAbertura to set
+     */
+    public void setDataAbertura(Date dataAbertura) {
+        this.dataAbertura = dataAbertura;
+    }
 
 
     public String getNumero(){
