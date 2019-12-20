@@ -14,8 +14,32 @@ public class Conta {
 
     private double saldo;
     private String nomeTitular;
+    private String numero;
+    private String agencia;
+
+
+    public String getNumero(){
+        return this.numero;
+    }
     
+    public void setNumero(String numero){
+        this.numero = numero;
+    }
     
+
+    /**
+     * @return the agencia
+     */
+    public String getAgencia() {
+        return agencia;
+    }
+
+    /**
+     * @param agencia the agencia to set
+     */
+    public void setAgencia(String agencia) {
+        this.agencia = agencia;
+    }
     
     void depositar(double d) {
     

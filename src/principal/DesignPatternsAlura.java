@@ -9,7 +9,8 @@ import chainOfResponsibility.*;
 import chainOfResponsibilityExercise.*;
 import strategy.*;
 import templateMethod.*;
-
+import templateMethodRelatorio.*;
+import java.util.*;
 /**
  *
  * @author Emm
@@ -25,9 +26,36 @@ public class DesignPatternsAlura {
         DesignPatternsAlura.testarChainOfResponsibility();
         DesignPatternsAlura.testarChainOfResponsibilityExercise();
         DesignPatternsAlura.testarTemplateMethod();
+        DesignPatternsAlura.testarTemplateMethodRelatorio();
         
     }
 
+
+    private static void testarTemplateMethodRelatorio(){
+
+        RelatorioComplexo relatorioComp = new RelatorioComplexo();
+        RelatorioSimples relatorioSimp = new RelatorioSimples();
+
+        Conta conta = new Conta();
+        conta.setAgencia("XXXXXXXX");
+        conta.setNomeTitular("Fulano");
+        conta.setNumero("YYYYYYYYYYY");
+        conta.setSaldo(10000);
+
+        Conta conta2 = new Conta();
+        conta2.setAgencia("AAAAAAAAAAAAAA");
+        conta2.setNomeTitular("Sicrano");
+        conta2.setNumero("BBBBBBBBBBBBBB");
+        conta2.setSaldo(30000);
+        
+        List<Conta> contas = new ArrayList<Conta>();
+        contas.add(conta);
+        contas.add(conta2);
+
+        relatorioComp.imprime(contas);
+        relatorioSimp.imprime(contas);
+
+    }
 
     private static void testarTemplateMethod(){
 
@@ -50,12 +78,16 @@ public class DesignPatternsAlura {
 
         ImpostoX impostoX = new ImpostoX();
         ImpostoY impostoY = new ImpostoY();
-        
+        ImpostoZ impostoZ = new ImpostoZ();
+
         double valorImpostoX = impostoX.calcula(orcamento);
         double valorImpostoY = impostoY.calcula(orcamento);
-        
+        double valorImpostoZ = impostoZ.calcula(orcamento);
+
         System.out.println("Valor impostoX: "+valorImpostoX);
         System.out.println("Valor impostoY: "+valorImpostoY);
+        System.out.println("Valor impostoZ: "+valorImpostoZ);
+
 
     }
 
