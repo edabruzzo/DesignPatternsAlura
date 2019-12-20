@@ -4,6 +4,14 @@ import chainOfResponsibility.*;
 
 public class ImpostoY extends TemplateImpostoCondicional{
 
+	public ImpostoY(Imposto outroImposto){
+		super(outroImposto);
+	}
+	
+	public ImpostoY(){
+		super();
+	}
+
 	@Override
 	public boolean deveUsarMaximaTaxacao(Orcamento orcamento) {
 		return orcamento.getValor() > 500 && possuiItemMaiorQueCemReais(orcamento);

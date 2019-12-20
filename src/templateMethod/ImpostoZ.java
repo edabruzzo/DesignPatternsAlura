@@ -5,6 +5,15 @@ import java.util.*;
 
 public class ImpostoZ extends TemplateImpostoCondicional{
 
+    public ImpostoZ(Imposto outroImposto){
+        super(outroImposto);
+    }
+
+
+    public ImpostoZ(){
+        super();
+    }
+
 	@Override
 	public boolean deveUsarMaximaTaxacao(Orcamento orcamento) {
         //regra de Negócio

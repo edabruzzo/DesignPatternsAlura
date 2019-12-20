@@ -4,6 +4,15 @@ import chainOfResponsibility.*;
 
 public class ImpostoX extends TemplateImpostoCondicional{
 
+	public ImpostoX(Imposto outroImposto){
+		super(outroImposto);
+	}
+
+	public ImpostoX(){
+		super();
+	}
+
+
 	@Override
 	public boolean deveUsarMaximaTaxacao(Orcamento orcamento) {
 		//implementa outra regra de negócio
