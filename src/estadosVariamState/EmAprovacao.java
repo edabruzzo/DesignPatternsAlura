@@ -2,12 +2,13 @@ package estadosVariamState;
 
 import chainOfResponsibility.Orcamento;
 
-public class EmAprovacao implements EstadoOrcamento {
+public class EmAprovacao extends EstadoOrcamento {
 
     @Override
     public void aplicaDescontoExtra(Orcamento orcamento) {
-
-            orcamento.setValor(orcamento.getValor() - orcamento.getValor() * 0.05);
+            if(!descontoJahAplicado)
+                orcamento.setValor(orcamento.getValor() - orcamento.getValor() * 0.05);
+                this.setDescontoJahAplicado(true);
     }
 
 

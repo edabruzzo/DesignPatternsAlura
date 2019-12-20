@@ -59,6 +59,8 @@ public class Orcamento {
 
 
     public void aplicaDescontoExtra() {
+        //manda a própria instância do orçamento como argumento para o método aplicacaoDescontoExtra
+        //o qual é executado pelas classes de Estado
         estadoAtual.aplicaDescontoExtra(this);
       }
     

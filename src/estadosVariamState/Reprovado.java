@@ -2,7 +2,7 @@ package estadosVariamState;
 
 import chainOfResponsibility.Orcamento;
 
-class Reprovado implements EstadoOrcamento {
+class Reprovado extends EstadoOrcamento {
 
     @Override
     public void aplicaDescontoExtra(Orcamento orcamento) {
