@@ -20,10 +20,10 @@ public abstract class EstadoOrcamento{
         this.descontoJahAplicado = descontoJahAplicado;
     }
 
-    abstract void aplicaDescontoExtra(Orcamento orcamento);
-    abstract void aprova(Orcamento orcamento);
-    abstract void reprova(Orcamento orcamento);
-    abstract void finaliza(Orcamento orcamento);
+    public abstract void aplicaDescontoExtra(Orcamento orcamento);
+    public abstract void aprova(Orcamento orcamento);
+    public abstract void reprova(Orcamento orcamento);
+    public abstract void finaliza(Orcamento orcamento);
 
 
 

@@ -5,7 +5,12 @@
  */
 package strategy;
 
-import java.util.Date;/**
+import java.util.Date;
+import estadosVariamState.EstadoConta;
+import estadosVariamState.EstadoNegativo;
+import estadosVariamState.EstadoPositivo;
+
+/**
  *
  * @author Emm
  */
@@ -17,6 +22,22 @@ public class Conta {
     private String numero;
     private String agencia;
     private Date dataAbertura;
+    private EstadoConta estadoAtual;
+
+
+    /*
+    Quem executa as ações é o estado do objeto e não o objeto conta em si
+
+    */
+
+    public void deposita(double valor){
+        estadoAtual.deposita(this, valor);
+    }
+
+
+    public void sacar(double valor){
+        estadoAtual.sacar(this, valor);
+    }
 
 
     /**
@@ -81,4 +102,23 @@ public class Conta {
         this.nomeTitular = nomeTitular;
     }
     
+    /**
+     * @return the estadoAtual
+     */
+    public EstadoConta getEstadoAtual() {
+        if(this.getSaldo()<0)
+            return new EstadoNegativo();
+        else
+            return new EstadoPositivo();
+    }
+
+
+    /**
+     * @param estadoAtual the estadoAtual to set
+     */
+    public void setEstadoAtual(EstadoConta estadoAtual) {
+        this.estadoAtual = estadoAtual;
+    }
+
+
 }
