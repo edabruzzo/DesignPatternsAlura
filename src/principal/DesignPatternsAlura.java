@@ -54,9 +54,12 @@ public class DesignPatternsAlura {
         List<Nota> listaNotas = new ArrayList<Nota>();
         
         listaNotas.add(notas.getNota("do"));
-        listaNotas.add(notas.getNota("ré"));
+        listaNotas.add(notas.getNota("doSustenido"));
+        listaNotas.add(notas.getNota("re"));
+        listaNotas.add(notas.getNota("reSustenido"));
         listaNotas.add(notas.getNota("mi"));
         listaNotas.add(notas.getNota("fa"));
+        listaNotas.add(notas.getNota("faSustenido"));
         listaNotas.add(notas.getNota("fa"));
         listaNotas.add(notas.getNota("fa"));
 
