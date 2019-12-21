@@ -64,13 +64,13 @@ public class DesignPatternsAlura {
 
         orcamento.setValor(valorFinalOrcamento);
 
-        NotaFiscalBuilder builderNotaFiscal = new NotaFiscalBuilder();
         
+        List<AcaoAposGerarNota> listaAcoesAposGerarNota = new ArrayList<AcaoAposGerarNota>();
+        listaAcoesAposGerarNota.add(new EnviarEmail());
+        listaAcoesAposGerarNota.add(new PersistirNotaBancoDados());
+        listaAcoesAposGerarNota.add(new MultiplicadorValorNota(2));
 
-        
-        builderNotaFiscal.adicionaAcaoAposEmissao(new EnviarEmail());
-        builderNotaFiscal.adicionaAcaoAposEmissao(new PersistirNotaBancoDados());
-        builderNotaFiscal.adicionaAcaoAposEmissao(new MultiplicadorValorNota(2));
+        NotaFiscalBuilder builderNotaFiscal = new NotaFiscalBuilder(listaAcoesAposGerarNota);
         
 
         NotaFiscal notaFiscal = builderNotaFiscal.notaComRazaoSocial("xxxxxxxxxxx")

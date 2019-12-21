@@ -22,7 +22,13 @@ public class NotaFiscalBuilder{
 
 
     public NotaFiscalBuilder(){
-        this.listaAcoesAposGerarNota = new ArrayList<AcaoAposGerarNota>();
+        listaAcoesAposGerarNota = new ArrayList<AcaoAposGerarNota>();
+    }
+
+
+
+    public NotaFiscalBuilder(List<AcaoAposGerarNota> listaAcoesAposGerarNota){
+        this.listaAcoesAposGerarNota = listaAcoesAposGerarNota;
     }
 
     public NotaFiscalBuilder notaComRazaoSocial(String razaoSocial){
@@ -111,11 +117,6 @@ public class NotaFiscalBuilder{
     }
 
 
-    public void adicionaAcaoAposEmissao(AcaoAposGerarNota acao){
-
-        this.listaAcoesAposGerarNota.add(acao);
-
-    }
-
+    
 
 }
