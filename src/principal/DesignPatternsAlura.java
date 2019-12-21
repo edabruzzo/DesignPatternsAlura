@@ -12,6 +12,7 @@ import templateMethod.*;
 import templateMethodRelatorio.*;
 import java.util.*;
 import builder.*;
+import observer.*;
 /**
 
 FAZ PARTE DO CURSO DA ALURA, DISPONÍVEL EM 
@@ -36,8 +37,52 @@ public class DesignPatternsAlura {
         DesignPatternsAlura.testarDecorator();
         DesignPatternsAlura.testarEstadosVariamState();
         DesignPatternsAlura.testarBuilder();
+        DesignPatternsAlura.testarObserver();
+
     
     }
+
+
+
+
+    private static void testarObserver(){
+
+        Orcamento orcamento = new Orcamento();
+        Item item = new Item();
+        item.setNome("Guitarra");
+        item.setValor(500);
+        
+        orcamento.getItens().add(item);
+        
+        double valorFinalOrcamento = 0;
+
+        for (Item itemOrcamento : orcamento.getItens()){
+
+            valorFinalOrcamento += itemOrcamento.getValor();
+
+        }
+
+        orcamento.setValor(valorFinalOrcamento);
+
+        NotaFiscalBuilder builderNotaFiscal = new NotaFiscalBuilder();
+        
+        builderNotaFiscal.adicionaAcaoAposEmissao(new EnviarEmail());
+        builderNotaFiscal.adicionaAcaoAposEmissao(new PersistirNotaBancoDados());
+        builderNotaFiscal.adicionaAcaoAposEmissao(new MultiplicadorValorNota(2));
+        
+
+        NotaFiscal notaFiscal = builderNotaFiscal.notaComRazaoSocial("xxxxxxxxxxx")
+                                                        .notaComCNPJ("cnpj")    
+                                                        .notaComData(Calendar.getInstance())                                
+                                                        .notaComImposto(orcamento)                    
+                                                        .notaComObservacao("XXXXXXXXXX")
+                                                        .notaComOrcamento(orcamento)                    
+                                                        .notaComValorBruto(orcamento)
+                                                        .montaNota();
+
+    }   
+
+
 
 
 
@@ -60,6 +105,10 @@ public class DesignPatternsAlura {
 
         }
 
+        orcamento.setValor(valorFinalOrcamento);
+
+
+
         NotaFiscal notaFiscal = new NotaFiscalBuilder().notaComRazaoSocial("xxxxxxxxxxx")
                                                         .notaComCNPJ("cnpj")    
                                                         .notaComData(Calendar.getInstance())                                
@@ -68,7 +117,7 @@ public class DesignPatternsAlura {
                                                         .notaComOrcamento(orcamento)                    
                                                         .notaComValorBruto(orcamento)
                                                         .montaNota();
-                                                        
+
     }   
 
 

@@ -1,11 +1,13 @@
 package builder;
 
 import java.util.Calendar;
-import chainOfResponsibility.Orcamento;
-import templateMethod.Imposto;
+
 import chainOfResponsibility.Item;
-import templateMethod.*;
+import chainOfResponsibility.Orcamento;
+import observer.*;
 import java.util.List;
+import java.util.ArrayList;
+
 
 public class NotaFiscalBuilder{
 
@@ -16,8 +18,12 @@ public class NotaFiscalBuilder{
     double impostos;
     Orcamento orcamento;
     String observacoes;
+    List<AcaoAposGerarNota> listaAcoesAposGerarNota;
 
 
+    public NotaFiscalBuilder(){
+        this.listaAcoesAposGerarNota = new ArrayList<AcaoAposGerarNota>();
+    }
 
     public NotaFiscalBuilder notaComRazaoSocial(String razaoSocial){
         this.razaoSocial = razaoSocial;
@@ -90,18 +96,26 @@ public class NotaFiscalBuilder{
 
     public NotaFiscal montaNota(){
 
+
         if(this.dataEmissao == null)
             this.dataEmissao = Calendar.getInstance();
+        
+        NotaFiscal notaFiscal = new NotaFiscal(razaoSocial, cnpj, valorBruto, impostos, dataEmissao, observacoes, orcamento );
 
-        return new NotaFiscal(razaoSocial, cnpj, valorBruto, impostos, dataEmissao, observacoes, orcamento );
+        for(AcaoAposGerarNota acao : listaAcoesAposGerarNota){
 
+            acao.executaAcao(notaFiscal);
+        }
+
+        return notaFiscal;
     }
 
 
+    public void adicionaAcaoAposEmissao(AcaoAposGerarNota acao){
 
+        this.listaAcoesAposGerarNota.add(acao);
 
-
-
+    }
 
 
 }
