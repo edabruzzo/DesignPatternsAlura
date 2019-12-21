@@ -66,6 +66,8 @@ public class DesignPatternsAlura {
 
         NotaFiscalBuilder builderNotaFiscal = new NotaFiscalBuilder();
         
+
+        
         builderNotaFiscal.adicionaAcaoAposEmissao(new EnviarEmail());
         builderNotaFiscal.adicionaAcaoAposEmissao(new PersistirNotaBancoDados());
         builderNotaFiscal.adicionaAcaoAposEmissao(new MultiplicadorValorNota(2));
