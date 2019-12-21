@@ -7,6 +7,9 @@ package principal;
 
 import chainOfResponsibility.*;
 import chainOfResponsibilityExercise.*;
+import flyweight.Nota;
+import flyweight.NotasMusicais;
+import flyweight.Piano;
 import strategy.*;
 import templateMethod.*;
 import templateMethodRelatorio.*;
@@ -38,12 +41,35 @@ public class DesignPatternsAlura {
         DesignPatternsAlura.testarEstadosVariamState();
         DesignPatternsAlura.testarBuilder();
         DesignPatternsAlura.testarObserver();
+        DesignPatternsAlura.testarFlyWeight();
 
     
     }
 
 
+    private static void testarFlyWeight(){
+    
+        NotasMusicais notas = new NotasMusicais();
+        
+        List<Nota> listaNotas = new ArrayList<Nota>();
+        
+        listaNotas.add(notas.getNota("do"));
+        listaNotas.add(notas.getNota("ré"));
+        listaNotas.add(notas.getNota("mi"));
+        listaNotas.add(notas.getNota("fa"));
+        listaNotas.add(notas.getNota("fa"));
+        listaNotas.add(notas.getNota("fa"));
 
+        listaNotas.add(notas.getNota("do"));
+        listaNotas.add(notas.getNota("ré"));
+        listaNotas.add(notas.getNota("do"));
+        listaNotas.add(notas.getNota("ré"));
+        listaNotas.add(notas.getNota("ré"));
+        listaNotas.add(notas.getNota("ré"));
+
+        new Piano().toca(listaNotas);
+        
+    }
 
     private static void testarObserver(){
 
