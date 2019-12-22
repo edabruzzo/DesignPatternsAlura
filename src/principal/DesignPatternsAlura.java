@@ -76,6 +76,9 @@ public class DesignPatternsAlura {
         System.out.println(contrato.getStatus());
         historico.adicionaEstadoContrato(contrato.salvaEstadoContrato());
 
+        
+        contrato.restaurarEstadoContrato(historico.procuraEstadoContrato(1));
+
     }
 
     private static void testarFlyWeight(){
