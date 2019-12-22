@@ -10,6 +10,8 @@ import chainOfResponsibilityExercise.*;
 import flyweight.Nota;
 import flyweight.NotasMusicais;
 import flyweight.Piano;
+import memento.Contrato;
+import memento.HistoricoContrato;
 import strategy.*;
 import templateMethod.*;
 import templateMethodRelatorio.*;
@@ -42,10 +44,39 @@ public class DesignPatternsAlura {
         DesignPatternsAlura.testarBuilder();
         DesignPatternsAlura.testarObserver();
         DesignPatternsAlura.testarFlyWeight();
+        DesignPatternsAlura.testarMemento();
 
     
     }
 
+    private static void testarMemento(){
+
+        HistoricoContrato historico = new HistoricoContrato();
+        Contrato contrato = new Contrato();
+        contrato.setCliente("XXXXXXXXX");
+        contrato.setDataAssinatura(Calendar.getInstance());
+        
+        //Em elaboração
+        System.out.println(contrato.getStatus());
+        historico.adicionaEstadoContrato(contrato.salvaEstadoContrato());
+        
+        contrato.avanca();
+        //Assinado
+        System.out.println(contrato.getStatus());
+        historico.adicionaEstadoContrato(contrato.salvaEstadoContrato());
+        
+        contrato.avanca();
+        //Vigente
+        System.out.println(contrato.getStatus());
+        historico.adicionaEstadoContrato(contrato.salvaEstadoContrato());
+        
+
+        contrato.avanca();
+        //Finalizado
+        System.out.println(contrato.getStatus());
+        historico.adicionaEstadoContrato(contrato.salvaEstadoContrato());
+
+    }
 
     private static void testarFlyWeight(){
     
