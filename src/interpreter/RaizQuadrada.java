@@ -6,7 +6,7 @@ public class RaizQuadrada implements Expressao {
 
     public RaizQuadrada(Expressao expressao){
 
-        if(expressao.getClass().equals(new Numero().getClass()))
+       // if(expressao.getClass().equals(new Numero().getClass()))
             this.expressao = expressao;
     }
 
@@ -15,17 +15,17 @@ public class RaizQuadrada implements Expressao {
     @Override
     public int avalia() {
 
-        double numero = 0;
+        int resultado = 0;
 
         if(this.expressao != null){
-            numero = (double) expressao.avalia();
-            return (int) Math.sqrt(numero);
+            
+            resultado =  (int) Math.sqrt(expressao.avalia());
 
         }else{
-            throw new RuntimeException("A expressão passada não é um número");
+         //   throw new RuntimeException("A expressão passada não é um número");
         }
         
-        
+        return resultado;
     }
 
 
