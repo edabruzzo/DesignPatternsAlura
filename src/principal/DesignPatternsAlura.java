@@ -20,6 +20,8 @@ import visitor.ImpressoraExpressao;
 import visitor.Visitor;
 
 import java.util.*;
+
+import Command.*;
 import builder.*;
 import observer.*;
 /**
@@ -51,10 +53,26 @@ public class DesignPatternsAlura {
         DesignPatternsAlura.testarMemento();
         Expressao conta = DesignPatternsAlura.testarInterpreter();
         DesignPatternsAlura.testarVisitor(conta);
+        DesignPatternsAlura.testarCommand();
     
     }
 
 
+    public static void testarCommand(){
+
+        Pedido pedido1 = new Pedido("xxxxxxxxxx", 2501);
+        Pedido pedido2 = new Pedido("YYYYYYYYYY", 9999);
+        
+        FilaTrabalho fila = new FilaTrabalho();
+        fila.adiciona(new PagaPedido(pedido1));
+        fila.adiciona(new PagaPedido(pedido2));
+        fila.adiciona(new Command.ConcluirPedido(pedido1));
+        fila.adiciona(new Command.ConcluirPedido(pedido2));
+
+        fila.processaComandos();
+        
+
+    }
 
     public static void testarVisitor(Expressao expressao){
 
