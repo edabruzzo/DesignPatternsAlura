@@ -16,6 +16,8 @@ import memento.HistoricoContrato;
 import strategy.*;
 import templateMethod.*;
 import templateMethodRelatorio.*;
+import visitor.ImpressoraExpressao;
+
 import java.util.*;
 import builder.*;
 import observer.*;
@@ -46,10 +48,21 @@ public class DesignPatternsAlura {
         DesignPatternsAlura.testarObserver();
         DesignPatternsAlura.testarFlyWeight();
         DesignPatternsAlura.testarMemento();
-        DesignPatternsAlura.testarInterpreter();
-
+        Expressao conta = DesignPatternsAlura.testarInterpreter();
+        DesignPatternsAlura.testarVisitor(conta);
     
     }
+
+
+
+    public static void testarVisitor(Expressao expressao){
+
+        ImpressoraExpressao visitor = new ImpressoraExpressao();
+        expressao.aceita(visitor);
+    }
+
+
+
 
 
 /*
@@ -57,7 +70,7 @@ https://cursos.alura.com.br/course/design-patterns-2/task/3981
 Quando temos expressões que devem ser avaliadas, e a transformamos em uma estrutura de dados, e depois fazemos com que a própria árvore se avalie, damos o nome de Interpreter.
 O padrão é bastante útil quando temos que implementar interpretadores para DSLs, ou coisas similares. É um padrão bem complicado, mas bastante interessante.
 */
-    private static void testarInterpreter(){
+    private static Expressao testarInterpreter(){
 
         Expressao esquerda = new Subtracao(new Numero(10), new Numero(15));
         Expressao direita = new Soma(new Numero(2), new Numero(10));
@@ -67,6 +80,8 @@ O padrão é bastante útil quando temos que implementar interpretadores para DS
         int resultado = conta.avalia();
 
         System.out.println(resultado);
+
+        return conta;
 
 
     }
