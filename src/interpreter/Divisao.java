@@ -1,6 +1,7 @@
 package interpreter;
 
-import visitor.ImpressoraExpressao;
+
+import visitor.Visitor;
 
 public class Divisao implements Expressao {
 
@@ -27,7 +28,7 @@ public class Divisao implements Expressao {
     }
 
     @Override
-    public void aceita(ImpressoraExpressao visitor) {
+    public void aceita(Visitor visitor) {
 
         visitor.visitaDivisao(this);
 

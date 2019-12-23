@@ -1,11 +1,12 @@
 package visitor;
 
 import interpreter.*;
-
-public class ImpressoraExpressao {
-
+import visitor.*;
 
 
+public class ImpressoraExpressao implements Visitor{
+
+   @Override
    public void visitaSoma(Soma soma){
 
         System.out.print("(");
@@ -16,7 +17,7 @@ public class ImpressoraExpressao {
 
     }
 
-
+    @Override
     public void visitaRaizQuadrada(RaizQuadrada raiz){
 
         System.out.print("(");
@@ -26,6 +27,7 @@ public class ImpressoraExpressao {
 
     }
 
+    @Override
     public void visitaSubtracao(Subtracao subtracao){
 
         System.out.print("(");
@@ -37,7 +39,7 @@ public class ImpressoraExpressao {
 
     }
 
-
+    @Override
     public void visitaDivisao(Divisao divisao){
 
         System.out.print("(");
@@ -48,7 +50,7 @@ public class ImpressoraExpressao {
 
     }
 
-
+    @Override
     public void visitaMultiplicacao(Multiplicacao multiplicacao){
 
         System.out.print("(");
@@ -61,7 +63,7 @@ public class ImpressoraExpressao {
 
 
 
-
+    @Override
     public void visitaNumero(Numero numero){
 
         System.out.print("(");

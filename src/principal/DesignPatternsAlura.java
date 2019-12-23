@@ -17,6 +17,7 @@ import strategy.*;
 import templateMethod.*;
 import templateMethodRelatorio.*;
 import visitor.ImpressoraExpressao;
+import visitor.Visitor;
 
 import java.util.*;
 import builder.*;
@@ -57,7 +58,7 @@ public class DesignPatternsAlura {
 
     public static void testarVisitor(Expressao expressao){
 
-        ImpressoraExpressao visitor = new ImpressoraExpressao();
+        Visitor visitor = new ImpressoraExpressao();
         expressao.aceita(visitor);
     }
 

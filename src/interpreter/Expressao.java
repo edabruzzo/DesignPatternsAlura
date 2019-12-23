@@ -1,10 +1,11 @@
 package interpreter;
 
-import visitor.ImpressoraExpressao;
+
+import visitor.Visitor;
 
 public interface Expressao {
 
     int avalia();
-    void aceita(ImpressoraExpressao visitor);
+    void aceita(Visitor visitor);
 
 }
