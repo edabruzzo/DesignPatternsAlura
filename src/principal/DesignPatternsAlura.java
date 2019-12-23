@@ -7,6 +7,7 @@ package principal;
 
 import chainOfResponsibility.*;
 import chainOfResponsibilityExercise.*;
+import interpreter.*;
 import flyweight.Nota;
 import flyweight.NotasMusicais;
 import flyweight.Piano;
@@ -45,8 +46,29 @@ public class DesignPatternsAlura {
         DesignPatternsAlura.testarObserver();
         DesignPatternsAlura.testarFlyWeight();
         DesignPatternsAlura.testarMemento();
+        DesignPatternsAlura.testarInterpreter();
 
     
+    }
+
+
+/*
+https://cursos.alura.com.br/course/design-patterns-2/task/3981
+Quando temos expressões que devem ser avaliadas, e a transformamos em uma estrutura de dados, e depois fazemos com que a própria árvore se avalie, damos o nome de Interpreter.
+O padrão é bastante útil quando temos que implementar interpretadores para DSLs, ou coisas similares. É um padrão bem complicado, mas bastante interessante.
+*/
+    private static void testarInterpreter(){
+
+        Expressao esquerda = new Subtracao(new Numero(10), new Numero(15));
+        Expressao direita = new Soma(new Numero(2), new Numero(10));
+
+        Expressao conta = new Soma(esquerda, direita);
+
+        int resultado = conta.avalia();
+
+        System.out.println(resultado);
+
+
     }
 
     private static void testarMemento(){
