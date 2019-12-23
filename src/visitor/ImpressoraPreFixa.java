@@ -72,10 +72,4 @@ public class ImpressoraPreFixa implements Visitor{
 
     }
 
-
-
-
-
-
-
 }
