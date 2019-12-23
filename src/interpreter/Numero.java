@@ -7,6 +7,7 @@ public class Numero implements Expressao{
     private int numero;
 
 
+    public Numero(){}
 
     public Numero(int numero){
         this.numero = numero;
